@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickLocation.Pages.NewVehicle">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10" VerticalOptions="StartAndExpand">
+
+            <AbsoluteLayout
+                        Grid.ColumnSpan="1"
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        BackgroundColor="Gray"
+                        WidthRequest="250"
+                        HeightRequest="300"
+                Margin="30">
+                <AbsoluteLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LoadImage"/>
+                </AbsoluteLayout.GestureRecognizers>
+
+                <Label
+                            Text="+"
+                            FontSize="32"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            AbsoluteLayout.LayoutBounds="0.5, 0.5"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+                <Image
+                            Source="{Binding ImageFilePath}"
+                            Aspect="AspectFill"
+                            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                            AbsoluteLayout.LayoutFlags="All"/>
+
+            </AbsoluteLayout>
+
+            <Label Text="Vehicle Name"/>
+            <Entry Text="{Binding VehicleName}"
+                   Placeholder="Vehicle Name"/>
+
+            <Label Text="Description"/>
+            <Editor
+                    HeightRequest="150"
+                    Text="{Binding Description}"
+                    Placeholder="Description"/>
+
+            <Button 
+                Text="Add Location"
+                Clicked="OnAddVehicleClicked"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

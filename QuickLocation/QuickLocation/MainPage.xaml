@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickLocation.MainPage"
+             Title="Quick Location">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Text="+"
+            
+            Clicked="OnVehicleAdded"/>
+    </ContentPage.ToolbarItems>
+    <ListView
+        x:Name="listView"
+        Margin="20"
+        ItemSelected="OnListItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout
+                        Margin="10,0,0,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal">
+                        <Label HorizontalOptions="StartAndExpand" Text="{Binding VehicleName}"/>
+                        <Image
+                            Source="{Binding ImageFilePath}"
+                            Aspect="AspectFit"
+                            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                            AbsoluteLayout.LayoutFlags="All"/>
+                        </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
